@@ -16,8 +16,5 @@ public class MsClientesApplication {
 		SpringApplication.run(MsClientesApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner runner(ClienteRepository repo) {
-		return args -> repo.save(new Cliente("03839947561", "Avner Caleb", 35));
-	}
+
 }

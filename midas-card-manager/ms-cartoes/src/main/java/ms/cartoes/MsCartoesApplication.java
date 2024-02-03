@@ -18,4 +18,8 @@ public class MsCartoesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MsCartoesApplication.class, args);
 	}
+	@Bean
+	CommandLineRunner runner(CartaoRepository repo) {
+		return args -> repo.save(new Cartao("BB Start", BandeiraCartao.MASTERCARD, BigDecimal.valueOf(3000), BigDecimal.valueOf(900)));
+	}
 }
