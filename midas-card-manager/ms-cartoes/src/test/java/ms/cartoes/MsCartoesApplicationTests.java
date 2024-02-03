@@ -1,10 +1,10 @@
-package msclientes;
+package ms.cartoes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsClientesApplicationTests {
+class MsCartoesApplicationTests {
 
 	@Test
 	void contextLoads() {

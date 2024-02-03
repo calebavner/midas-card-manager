@@ -1,9 +1,11 @@
 package msclientes.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "clientes")
@@ -13,7 +15,11 @@ public class Cliente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @CPF @NotEmpty
     private String cpf;
+
+    @NotEmpty
     private String nome;
     private Integer idade;
 

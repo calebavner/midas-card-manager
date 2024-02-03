@@ -1,5 +1,6 @@
 package msclientes.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import msclientes.domain.Cliente;
@@ -19,7 +20,7 @@ public class ClienteController {
     private final ClienteService service;
 
     @PostMapping
-    public ResponseEntity<Cliente> cadastrar(@RequestBody Cliente c, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<Cliente> cadastrar(@RequestBody @Valid Cliente c, UriComponentsBuilder uriBuilder) {
         Cliente newCliente = service.cadastrar(c);
         URI uri = uriBuilder.path("/clientes/{cpf}").buildAndExpand(newCliente.getCpf()).toUri();
 
@@ -29,7 +30,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity buscarPorCpf(@RequestParam String cpf) {
+    public ResponseEntity buscarPorCpf(@RequestParam @Valid String cpf) {
         if(service.buscarPorCpf(cpf).isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
