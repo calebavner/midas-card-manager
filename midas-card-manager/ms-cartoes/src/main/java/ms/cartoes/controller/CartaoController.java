@@ -30,7 +30,7 @@ public class CartaoController {
         return ResponseEntity.ok(cartaoService.listarCartoesRendaMenorIgual(renda));
     }
     @GetMapping(params = "cpf")
-    public ResponseEntity<List<CartoesPorCliente>> listarCartoesPorCpf(String cpf) {
+    public ResponseEntity<List<CartoesPorCliente>> listarCartoesPorCpf(@RequestParam String cpf) {
         List<CartoesPorCliente> result = clienteCartaoService.listarCartoesPorCpf(cpf)
                                     .stream()
                                     .map(CartoesPorCliente::fromModel)
