@@ -9,6 +9,6 @@ eureka:
   client:
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://admin:admin@ms-discovery:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring-cloud.application.instance_id:${random.value}}
